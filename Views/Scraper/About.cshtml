@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "O aplikaci";
+}
+
+<h1>O aplikaci</h1>
+
+<div style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <p>
+        Tato aplikace je navržena pro rychlé a snadné vyhledávání přes Google, přičemž umožňuje
+        uživatelům zobrazit všechny relevantní informace o výsledcích na jednom místě. 
+    </p>
+
+    <h2>Hlavní funkce:</h2>
+        <p>Vyhledávání klíčových slov přímo z Googlu a zobrazování prvních výsledků.</p>
+        <p>Zobrazování informací o každém výsledku, včetně:</p>
+        <ul>
+            <li><strong>Názvu:</strong> Přesný název webové stránky.</li>
+            <li><strong>Odkazu:</strong> Klikatelný odkaz na cílovou stránku.</li>
+            <li><strong>Popisu:</strong> Krátký úryvek textu, který popisuje obsah stránky.</li>
+            <li><strong>Ikony (favicon):</strong> Malá ikona reprezentující daný web.</li>
+        </ul>
+        <p>Možnost exportu výsledků do formátu JSON, XML, CSV pro další zpracování.</p>
+
+    <h2>Jak aplikace funguje?</h2>
+    <p>
+        Po zadání klíčového slova do vyhledávacího pole aplikace odešle požadavek na Google 
+        a zpracuje získané HTML pomocí technologie pro scraping. Získané výsledky jsou následně
+        zobrazeny v přehledném seznamu na hlavní stránce. Data lze navíc uložit ve strukturovaném formátu JSON, XML, nebo CSV.
+    </p>
+    <h2>Použité technologie:</h2>
+    <ul>
+        <li><strong>ASP.NET Core MVC:</strong> Pro tvorbu backendu i frontendové části aplikace.</li>
+        <li><strong>HtmlAgilityPack:</strong> Pro efektivní scraping HTML dat z Google výsledků.</li>
+        <li><strong>Bootstrap:</strong> Pro moderní a responzivní vzhled uživatelského rozhraní.</li>
+        <li><strong>JSON:</strong> Pro ukládání a export dat.</li>
+    </ul>    
+</div>

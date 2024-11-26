@@ -1,0 +1,42 @@
+﻿@model List<Scraper.Models.SearchResult>
+
+@{
+    ViewData["Title"] = "Vyhledávání";
+}
+<h1 class="text-center">Google Search Scraper</h1>
+    <form method="post" class="d-flex flex-wrap gap-2">
+        <input class="form-control flex-grow-1" type="text" id="keyword" name="keyword" placeholder="Zadejte klíčové slovo" required>
+        <button class="btn btn-success" type="submit">Vyhledat</button>
+        <!-- Tlačítka pro stažení -->
+        @if (Model != null && Model.Any()) {
+            <a href="/Scraper/DownloadJson" class="btn btn-primary">Stáhnout JSON</a>
+            <a href="/Scraper/DownloadXml" class="btn btn-primary">Stáhnout XML</a>
+            <a href="/Scraper/DownloadCsv" class="btn btn-primary">Stáhnout CSV</a>
+        }
+    </form>
+
+<!-- Zobrazení chybové zprávy -->
+@if (!string.IsNullOrEmpty(ViewBag.Error)) {
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<!-- Výsledky vyhledávání -->
+@if (Model != null && Model.Any()) {
+    <h2 class="mb-5 mt-5">Výsledky vyhledávání:</h2>
+    <div>
+        @foreach (var result in Model) {
+            <div class="mb-3">
+                @if (!string.IsNullOrEmpty(result.Icon)) {
+                    <img src="@result.Icon" alt="Favicon" class="me-2" style="height: 16px; width: 16px;" />
+                }
+                <h3 class="d-inline">@result.Title</h3>
+                <br />
+                <a href="@result.Link" target="_blank">@result.Link</a>
+                <p>@result.Snippet</p>
+            </div>
+        }
+    </div>
+}
+
